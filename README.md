@@ -179,7 +179,7 @@ curl --location --request GET 'localhost:9200/words/_search' \
 
 ### 3.4 Result for 3 typos (part of response)
 
-```json
+```
 {
   "took": 5,
   "timed_out": false,
