@@ -2,7 +2,7 @@
 Creates index `words`
 Uploads [data](data.json) to elasticsearch index `words`
 Configures autocomplete:
-1. Using custom `ngram` filter and custom analyzer (to leverage 3 typos)
+1. Using custom `edge_ngram` filter and custom analyzer (to leverage 3 typos)
 2. Using mapping for name field with type completion (to leverage at most 2 typos) and elasticsearch suggester
 
 # Project Structure
@@ -27,9 +27,9 @@ curl --location --request PUT 'localhost:9200/words' \
     "analysis": {
       "filter": {
         "autocomplete_filter": { 
-          "type": "ngram",
-          "min_gram": 3,
-          "max_gram": 4
+          "type": "edge_ngram",
+          "min_gram": 1,
+          "max_gram": 20
         }
       },
       "analyzer": {
